@@ -15,14 +15,13 @@ let urlImage = `http://localhost:9000/uploads/course/thumbnails/`;
 // let urlVideo = `http://localhost:9000/uploads/course/videos/`;
 
 // Access the courses array inside the courses object
-const coursesArray = courses?.courses || [];
+// const coursesArray = courses?.courses || [];
 
 // const [showVideo, setShowVideo] = useState(false);
 
 // const handleCardClick = () => {
 //   setShowVideo(true);
 // };
-
 
 
   const handleShare = async (title, url) => {

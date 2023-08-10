@@ -90,6 +90,8 @@ module.exports.updateVideo = async function(req,res){
     console.log("video0",video)
     try {
         await Video.uploadVideo(req,res,async function(err){
+
+          // let video = await Video.findById(req.params.id);
     
             if (!video) {
               return res.status(404).json({
@@ -129,8 +131,12 @@ module.exports.updateVideo = async function(req,res){
             console.log("reqId",req.params.id);
             console.log("id",id)
             await Video.findByIdAndUpdate({_id:id}, updatedData,{new:true});
-            const result = Video.findOne({_id:id});
-            return res.status(200).send(result);
+            //  updatedVideo = await Video.findByIdAndUpdate({ _id: id }, updatedData, { new: true });
+            const result = await Video.findOne({_id:id}).exec();
+            // return res.status(200).send(result);
+            return res.status(200).json({
+              result:result
+            });
             // return res.status(200).send(updatedData);
         });
       } catch (err) {

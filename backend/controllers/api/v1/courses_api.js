@@ -106,7 +106,7 @@ module.exports.updateData = async function(req,res){
     //   }
             // Update the course document
             await Course.findByIdAndUpdate({_id}, updatedData,{new:true});
-            const result = Course.findOne({_id:_id});
+            const result = await Course.findOne({_id:_id});
             return res.status(200).send(result);
         // });
       } catch (err) {
